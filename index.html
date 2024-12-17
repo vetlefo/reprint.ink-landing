@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REPRINT.ink | The Merch of Tomorrow</title>
+    <meta name="description" content="REPRINT.ink - Revolutionizing merch with innovative designs and smart fabrics. Join us in crafting tomorrow's legacy today.">
+    <meta property="og:title" content="REPRINT.ink | The Merch of Tomorrow">
+    <meta property="og:description" content="Where tradition meets innovation, and every piece tells a story from the future.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,28 +16,64 @@
             <h1>REPRINT.ink</h1>
             <p class="tagline">The Merch of Tomorrow</p>
             <p class="manifesto">Where tradition meets innovation, and every piece tells a story from the future.</p>
-            <div class="cta-container">
-                <button class="cta-primary">Join the Waitlist</button>
-                <button class="cta-secondary">Learn More</button>
+            <div class="newsletter-signup">
+                <form id="waitlist-form" class="signup-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="cta-primary">Join the Waitlist</button>
+                </form>
+                <p class="form-notice">Be the first to experience the future of merch</p>
             </div>
+            <button class="cta-secondary scroll-to-about">Learn More</button>
         </div>
     </div>
+    
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Our Vision</h2>
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <h3>Innovation</h3>
+                    <p>Pushing the boundaries of what merch can be through smart fabrics and digital integration.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>Sustainability</h3>
+                    <p>Creating products that respect both tradition and our planet's future.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>Community</h3>
+                    <p>Building a collective of forward-thinking creators and consumers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <section class="preview">
         <h2>Coming Soon</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-placeholder"></div>
+                <div class="product-placeholder">
+                    <div class="hover-content">
+                        <p>Interactive fabric preview coming soon</p>
+                    </div>
+                </div>
                 <h3>Digital Denim</h3>
                 <p>Smart fabric meets street style</p>
             </div>
             <div class="product-card">
-                <div class="product-placeholder"></div>
+                <div class="product-placeholder">
+                    <div class="hover-content">
+                        <p>AR preview coming soon</p>
+                    </div>
+                </div>
                 <h3>Neo Prints</h3>
                 <p>Augmented reality apparel</p>
             </div>
             <div class="product-card">
-                <div class="product-placeholder"></div>
+                <div class="product-placeholder">
+                    <div class="hover-content">
+                        <p>Touch-responsive preview coming soon</p>
+                    </div>
+                </div>
                 <h3>Quantum Wear</h3>
                 <p>Where comfort meets the cutting edge</p>
             </div>
@@ -43,5 +83,17 @@
     <footer>
         <p>&copy; 2024 REPRINT.ink | Crafting Tomorrow's Legacy Today</p>
     </footer>
+
+    <script>
+        document.querySelector('.scroll-to-about').addEventListener('click', () => {
+            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('waitlist-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add waitlist functionality here
+            alert('Thanks for joining! We\'ll be in touch soon.');
+        });
+    </script>
 </body>
 </html>

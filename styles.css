@@ -6,6 +6,7 @@
     --background-color: #0a0a0a;
     --text-color: #ffffff;
     --card-background: #1a1a1a;
+    --gradient-animation-duration: 10s;
 }
 
 * {
@@ -19,6 +20,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .hero {
@@ -26,8 +28,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, rgba(0,244,255,0.1), rgba(255,0,234,0.1));
+    position: relative;
     padding: 2rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,244,255,0.1), rgba(255,0,234,0.1));
+    animation: gradientShift var(--gradient-animation-duration) infinite alternate;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-content {
@@ -57,10 +81,30 @@ h1 {
     opacity: 0.8;
 }
 
-.cta-container {
+.newsletter-signup {
+    margin-bottom: 2rem;
+}
+
+.signup-form {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.signup-form input[type="email"] {
+    padding: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+    font-family: inherit;
+    min-width: 300px;
+}
+
+.form-notice {
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 button {
@@ -88,6 +132,39 @@ button {
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,244,255,0.2);
+}
+
+.about {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, rgba(0,244,255,0.05), rgba(255,0,234,0.05));
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.vision-card {
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.vision-card:hover {
+    transform: translateY(-4px);
+}
+
+.vision-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .preview {
@@ -125,6 +202,26 @@ h2 {
     background: linear-gradient(45deg, rgba(0,244,255,0.1), rgba(255,0,234,0.1));
     border-radius: 4px;
     margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-placeholder:hover .hover-content {
+    opacity: 1;
 }
 
 .product-card h3 {
@@ -151,8 +248,12 @@ footer {
         font-size: 1.5rem;
     }
     
-    .cta-container {
+    .signup-form {
         flex-direction: column;
+    }
+    
+    .signup-form input[type="email"] {
+        min-width: auto;
     }
     
     .product-grid {
