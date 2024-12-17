@@ -1,0 +1,20 @@
+/* Adjusted color palette for better accessibility */
+:root {
+  --cyan-bright: #66f7f7; /* Muted from #00FFFF */
+  --magenta-bright: #ff66ff; /* Muted from pure magenta */
+  --yellow-bright: #ffff66; /* Muted from #FFFF00 */
+  
+  /* Add CSS variables for reduced motion/intensity mode */
+  --reduced-intensity-cyan: #99f0f0;
+  --reduced-intensity-magenta: #ff99ff;
+  --reduced-intensity-yellow: #ffff99;
+}
+
+/* Add a media query for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --cyan-bright: var(--reduced-intensity-cyan);
+    --magenta-bright: var(--reduced-intensity-magenta);
+    --yellow-bright: var(--reduced-intensity-yellow);
+  }
+}
